@@ -13,6 +13,6 @@ class Category extends Model
     protected $fillable = ['name'];
     public function products()
     {
-        return $this->hasOne(Product::class);
+        return $this->hasMany(Product::class);
     }
 }

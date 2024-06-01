@@ -55,6 +55,17 @@ class CategoryCrudController extends CrudController
          * Columns can be defined using the fluent syntax:
          * - CRUD::column('price')->type('number');
          */
+
+        // Adding a custom column for related products
+        $this->crud->addColumn([
+            'name' => 'products',
+            'label' => 'Products',
+            'type' => 'relationship',
+            'entity' => 'products',
+            'attribute' => 'name', // This will show the product names
+            'model' => 'App\Models\Product',
+            'pivot' => false, // No need for pivot as this is a one-to-many relationship
+        ]);
     }
 
     /**
