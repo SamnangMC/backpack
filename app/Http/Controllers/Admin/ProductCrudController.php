@@ -53,6 +53,14 @@ class ProductCrudController extends CrudController
                 'type' => 'number',
                 'label' => 'Quantity'
             ],
+            [
+                'name' => 'category_id',
+                'type' => 'select',
+                'label' => 'Category',
+                'entity' => 'category', // the method that defines the relationship in your Model
+                'model' => 'App\Models\Category', // foreign key model
+                'attribute' => 'name' // foreign key attribute that is shown to user
+            ],
         ]);
 
         // Define the fields
@@ -79,6 +87,14 @@ class ProductCrudController extends CrudController
                 'type' => 'number',
                 'label' => 'Quantity'
             ],
+            [
+                'name' => 'category_id',
+                'type' => 'select',
+                'label' => 'Category',
+                'entity' => 'category', // the method that defines the relationship in your Model
+                'model' => 'App\Models\Category', // foreign key model
+                'attribute' => 'name' // foreign key attribute that is shown to user
+            ],
         ]);
     }
 
@@ -96,6 +112,15 @@ class ProductCrudController extends CrudController
          * Columns can be defined using the fluent syntax:
          * - CRUD::column('price')->type('number');
          */
+         // Add custom column for category name
+         $this->crud->addColumn([
+            'name' => 'category_id', // The db column name
+            'type' => 'select',
+            'label' => 'Category',
+            'entity' => 'category', // the method that defines the relationship in your Model
+            'model' => 'App\Models\Category', // foreign key model
+            'attribute' => 'name' // foreign key attribute that is shown to user
+        ]);
     }
 
     /**

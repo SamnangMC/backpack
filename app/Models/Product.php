@@ -10,5 +10,9 @@ class Product extends Model
 {
     use CrudTrait;
     use HasFactory;
-    protected $fillable = ['name', 'description', 'price', 'quantity'];
+    protected $fillable = ['name', 'description', 'price', 'quantity', 'category_id'];
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
